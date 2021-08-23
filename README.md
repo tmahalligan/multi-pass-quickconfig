@@ -11,8 +11,11 @@ Linux: https://multipass.run/docs/installing-on-linux
 
 ### Pull down config automation ###
 Create a local directory to pull the multipass_config repo and clone repo
+
 mkdir /projects/demo
+
 cd /projects/demo
+
 git clone https://github.com/tmahalligan/multi-pass-quickconfig.git
 
 ### Launch Multipass instance ####
