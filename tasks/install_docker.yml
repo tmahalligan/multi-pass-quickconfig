@@ -1,0 +1,34 @@
+- name: Download and Install Docker's GPG Key
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor | sudo apt-key add -
+  args:
+    executable: /bin/bash
+    warn: false
+
+# Replaced with bionic focal not supported yet. $(lsb_release -cs)
+- name: Add the Docker software repository
+  shell: echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu/  bionic stable" | sudo tee /etc/apt/sources.list.d/Docker.list
+  args:
+    executable: /bin/bash
+
+- name: Update APT Sources
+  apt:
+    update_cache: yes
+
+- name: Install Docker
+  apt: 
+   pkg:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+
+- name: Add the ubuntu user to docker group
+  user:
+    name: ubuntu
+    groups: docker
+    append: yes
+
+- name: Start docker service
+  service:
+    enabled: yes
+    name: docker
+    state: started

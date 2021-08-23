@@ -1,0 +1,27 @@
+#Installs All Packages
+- name: Install Packages from APT
+  apt: 
+     pkg:
+     - apt-transport-https
+     - gnupg
+     - gnupg-agent 
+     - htop
+     - unzip
+     - meld
+     - python3
+     - python3-pip
+     - binutils
+     - curl
+     - ghex
+     - openssl
+     - vim
+     - jq
+     - ca-certificates
+     - apt-transport-https 
+     - lsb-release 
+     - dkms
+     - python3-requests
+     - snapd
+
+
+
